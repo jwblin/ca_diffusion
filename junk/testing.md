@@ -6,7 +6,7 @@ A Second Level Header
 
 Now is the time for all good men to come to
 the aid of their country. This is just a
-regular paragraph.
+regular paragraph. Now it has an extra sentence.
 
 The quick brown fox jumped over the lazy
 dog's back.
@@ -19,4 +19,3 @@ dog's back.
 >
 > ## This is an H2 in a blockquote
 
-edits and stuff
