@@ -14,6 +14,10 @@ Shiflet, Angela B.; Shiflet, George W. (2014-03-30).
         Tyler McBride
     FirstBranch?
 '''
+import numpy as np
+import sys, traceback
+
+
 # ---- CONSTANTS ----
 COLD = 0
 AMBIENT = 1
@@ -52,7 +56,7 @@ def initBar(m,n,hotSites,coldSites):
 
     Post: An m × n grid of values as described before has been returned.
     '''
-    ambientBar = []#←m by n matrix of AMBIENT values
+    ambientBar = np.full((m,n), AMBIENT)#←m by n matrix of AMBIENT values
     return applyHotCold(ambientBar, hotSites, coldSites)
 
     
