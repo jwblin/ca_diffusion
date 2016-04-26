@@ -52,8 +52,7 @@ def applyHotCold(bar, hotSites, coldSites):
     coldArr = np.array(coldSites)
     coldX = coldArr[:,0]
     coldY = coldArr[:,1]
-    newBar[coldX,coldY] = COLD #prints row first, then column.
-    print newBar    
+    newBar[coldX,coldY] = COLD #prints row first, then column.    
     return newBar
 
 #abar = np.full((2,3), AMBIENT).astype(int)
@@ -85,10 +84,9 @@ def initBar(m,n,hotSites,coldSites):
     Post: An m × n grid of values as described before has been returned.
     '''
     #←mxn matrix of AMBIENT values
-    ambientBar = np.full((m,n), AMBIENT).astype(int)
+    ambientBar = np.full((m,n), AMBIENT)
 
     return applyHotCold(ambientBar, hotSites, coldSites)
-#print initBar(5, 15, hotSites, coldSites)    
 
 def diffusion(diffusionRate, site, N, NE, E, SE, S, SW, W, NW):
     '''Funciton to return the new temperature of a cell
