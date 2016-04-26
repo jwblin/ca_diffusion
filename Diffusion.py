@@ -14,6 +14,12 @@ Shiflet, Angela B.; Shiflet, George W. (2014-03-30).
         Tyler McBride
     FirstBranch?
 '''
+# ---- CONSTANTS ----
+COLD = 0
+AMBIENT = 1
+HOT = 2
+# ---- CONSTANTS ----
+
 
 
 def applyHotCold(bar, hotSites, coldSites):
