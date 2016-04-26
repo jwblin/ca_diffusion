@@ -19,9 +19,9 @@ import sys, traceback
 
 
 # ---- CONSTANTS ----
-COLD = 0
-AMBIENT = 1
-HOT = 2
+COLD = 0        #degC
+AMBIENT = 25    #degC
+HOT = 50        #degC
 # ---- CONSTANTS ----
 
 
