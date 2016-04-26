@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+__author__ = 'v-caearl'
+
 ''' Diffusion.py: Builds Module 10.2 (Diffusion) from S&S
-#--------#---------#---------#---------#--------#---------#---------#---------#
+#--------1---------2---------3---------4---------5---------6---------7---------8
 Shiflet, Angela B.; Shiflet, George W. (2014-03-30). 
     Introduction to Computational Science: Modeling and Simulation for the 
     Sciences (Page 420). Princeton University Press. Kindle Edition. 
@@ -13,7 +15,6 @@ Shiflet, Angela B.; Shiflet, George W. (2014-03-30).
     FirstBranch?
 '''
 
-__author__ = 'v-caearl'
 
 def applyHotCold(bar, hotSites, coldSites):
     '''Function to accept a grid of temperatures and to return a grid with 
