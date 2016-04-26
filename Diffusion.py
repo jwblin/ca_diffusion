@@ -56,7 +56,9 @@ def initBar(m,n,hotSites,coldSites):
 
     Post: An m × n grid of values as described before has been returned.
     '''
-    ambientBar = np.full((m,n), AMBIENT)#←m by n matrix of AMBIENT values
+    #←mxn matrix of AMBIENT values
+    ambientBar = np.full((m,n), AMBIENT).astype(int)
+
     return applyHotCold(ambientBar, hotSites, coldSites)
 
     
