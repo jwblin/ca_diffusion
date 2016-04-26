@@ -87,6 +87,7 @@ def initBar(m,n,hotSites,coldSites):
     ambientBar = np.full((m,n), AMBIENT)
 
     return applyHotCold(ambientBar, hotSites, coldSites)
+#print initBar(5, 10, hotSites, coldSites)    
 
 def diffusion(diffusionRate, site, N, NE, E, SE, S, SW, W, NW):
     '''Funciton to return the new temperature of a cell
