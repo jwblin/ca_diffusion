@@ -1,4 +1,10 @@
+# -*- coding: utf-8 -*-
 ''' Diffusion.py: Builds Module 10.2 (Diffusion) from S&S
+#--------#---------#---------#---------#--------#---------#---------#---------#
+Shiflet, Angela B.; Shiflet, George W. (2014-03-30). 
+    Introduction to Computational Science: Modeling and Simulation for the 
+    Sciences (Page 420). Princeton University Press. Kindle Edition. 
+
     Group Members:
         Alex Ducken
         Branden Livermore
@@ -9,5 +15,74 @@
 
 __author__ = 'v-caearl'
 
+def applyHotCold(bar, hotSites, coldSites):
+    '''Function to accept a grid of temperatures and to return a grid with 
+    heat and cold applied at hotSites and coldSites, respectively
+    
+    Pre: bar is a grid of values.
+    hotSites and coldSites are lists of coordinates inside the grid for hot 
+    and cold sites, respectively.
+    AMBIENT, HOT, and COLD are global constants, and COLD≤AMBIENT≤HOT.
+
+    Post: A grid of values as described above has been returned.
+    '''
+    newBar = bar
+    #assign HOT to every newBar cell with coordinates in hotSites
+    #assign COLD to every newBar cell with coordinates in coldSites
+    return newBar
+
+
+def initBar(m,n,hotSites,coldSites):
+    '''Function to return an mxn grid of temperatures:
+    Cells with coordinates in hotSites have the value HOT; 
+    cells with coordinates in coldSites have the value COLD; 
+    and all other cells have the value AMBIENT
+
+    Pre: m and n are positive integers.
+    hotSites and coldSites are lists of coordinates for hot and cold sites, 
+    respectively.
+    AMBIENT, HOT, and COLD are global constants, and COLD≤AMBIENT≤HOT.
+
+    Post: An m × n grid of values as described before has been returned.
+    '''
+    ambientBar = []#←m by n matrix of AMBIENT values
+    return applyHotCold(ambientBar, hotSites, coldSites)
+
+    
+
 def diffusion(diffusionRate, site, N, NE, E, SE, S, SW, W, NW):
+    '''Funciton to return the new temperature of a cell
+    '''
     return(1-8*diffusionRate)*site + diffusionRate*(N + NE + E +  SE + S + SW + W + NW)
+    
+def reflectingLat(lat):
+    '''Function to accept a grid and to return a grid extended one cell in each direction with reflecting boundary conditions
+    Pre: lat is a grid.
+    Post: A grid extended one cell in each direction with reflecting boundary 
+    conditions was returned.
+    '''
+    #latNS← concatenation of first row of lat, lat, and last row of lat
+    #return concatenation of first column of latNS, latNS, and last column of latNS
+
+
+def diffusionSim(m, n, diffusionRate, t):
+    '''Function to return a list of grids in a simulation of the diffusion of heat 
+    through a metal bar
+    Pre: m and n are positive integers for the number of grid rows and columns, respectively.
+    diffusionRate is the rate of diffusion. 
+    t is the number of time steps.
+    diffusion is a function to return a new temperature for a grid point.
+    Post: A list of the initial grid and the grid at each time step of the simulation was returned.
+    '''
+    #bar←initBar(m, n, hotSites, coldSites)
+    #grids← list containing bar
+    #do the following t times:
+    #barExtended←reflectingLat(bar)
+    #bar←applyDiffusionExtended(diffusionRate, barExtended)
+    #bar←applyHotCold(bar, hotSites, coldSites)
+    #grids← the list with bar appended onto the end of grids
+    #return grids
+
+
+
+    
