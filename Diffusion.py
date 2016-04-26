@@ -19,12 +19,15 @@ import sys, traceback
 
 
 # ---- CONSTANTS ----
-COLD = 0
-AMBIENT = 1
-HOT = 2
+COLD = 0        #degC
+AMBIENT = 25    #degC
+HOT = 50        #degC
 # ---- CONSTANTS ----
 
-
+hotSites = [[0,0],[0,1]]
+coldSites = [[1,0], [1,1]]
+#coldSites = [[0,1],[2,3]]
+#coldArr = np.array(coldSites)
 
 def applyHotCold(bar, hotSites, coldSites):
     '''Function to accept a grid of temperatures and to return a grid with 
@@ -38,17 +41,42 @@ def applyHotCold(bar, hotSites, coldSites):
     Post: A grid of values as described above has been returned.
     '''
     newBar = bar
+    
     #assign HOT to every newBar cell with coordinates in hotSites
+    hotArr = np.array(hotSites)
+    hotX = hotArr[:,0]
+    hotY = hotArr[:,1]
+    newBar[hotX,hotY] = HOT #prints row first, then column.
+    
     #assign COLD to every newBar cell with coordinates in coldSites
+    coldArr = np.array(coldSites)
+    coldX = coldArr[:,0]
+    coldY = coldArr[:,1]
+    newBar[coldX,coldY] = COLD #prints row first, then column.
+    print newBar    
     return newBar
 
+#abar = np.full((2,3), AMBIENT).astype(int)
+
+#abar = np.arange(6) #-testing
+#abar.resize((2,3))
+#print applyHotCold(abar, hotSites, coldSites)
 
 def initBar(m,n,hotSites,coldSites):
     '''Function to return an mxn grid of temperatures:
     Cells with coordinates in hotSites have the value HOT; 
     cells with coordinates in coldSites have the value COLD; 
     and all other cells have the value AMBIENT
-
+    ---
+    applyHotCold converts these lists into arrays.
+    Then slices these arrays back into 2 separate arrays for their x & y coords.
+    
+    These arrays are inserted into the index of newBar to change each matching value individually -- 
+    (hotX[0],hotY[0]), 
+    (hotX[1], hotY[1]), ...etc.
+    
+    The grid is displayed with (0,0) in the top left. 
+    ---
     Pre: m and n are positive integers.
     hotSites and coldSites are lists of coordinates for hot and cold sites, 
     respectively.
@@ -60,8 +88,7 @@ def initBar(m,n,hotSites,coldSites):
     ambientBar = np.full((m,n), AMBIENT).astype(int)
 
     return applyHotCold(ambientBar, hotSites, coldSites)
-
-    
+#print initBar(5, 15, hotSites, coldSites)    
 
 def diffusion(diffusionRate, site, N, NE, E, SE, S, SW, W, NW):
     '''Funciton to return the new temperature of a cell
