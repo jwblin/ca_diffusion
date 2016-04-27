@@ -118,7 +118,7 @@ def reflectingLat(lat):
 #b = np.array([4,5,6])
 #tempLat = np.arange(12)
 #tempLat.resize(3,4)
-#reflectingLat(tempLat)
+#print reflectingLat(tempLat)
 #print np.concatenate((a,b))
 #print np.vstack([a,b])
 
