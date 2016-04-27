@@ -92,17 +92,35 @@ def initBar(m,n,hotSites,coldSites):
 def diffusion(diffusionRate, site, N, NE, E, SE, S, SW, W, NW):
     '''Funciton to return the new temperature of a cell
     '''
-    return(1-8*diffusionRate)*site + diffusionRate*(N + NE + E +  SE + S + SW + W + NW)
+    return(1-8*diffusionRate)*site \
+            + diffusionRate*(N + NE + E +  SE + S + SW + W + NW)
     
 def reflectingLat(lat):
-    '''Function to accept a grid and to return a grid extended one cell in each direction with reflecting boundary conditions
+    '''Function to accept a grid and to return a grid extended one cell in 
+    each direction with reflecting boundary conditions
     Pre: lat is a grid.
     Post: A grid extended one cell in each direction with reflecting boundary 
     conditions was returned.
     '''
     #latNS← concatenation of first row of lat, lat, and last row of lat
-    #return concatenation of first column of latNS, latNS, and last column of latNS
+    rowFirst = lat[0,:]
+    rowLast = lat[-1,:]
+    latNS = np.vstack([rowFirst, lat, rowLast])
+    
+    #return concatenation of 
+    #first column of latNS, latNS, and last column of latNS
+    colFirst = latNS[:,0]
+    colLast = latNS[:,-1]
+    return np.column_stack([colFirst, latNS, colLast])
+    
 
+#a = np.array([1,2,3])
+#b = np.array([4,5,6])
+#tempLat = np.arange(12)
+#tempLat.resize(3,4)
+#reflectingLat(tempLat)
+#print np.concatenate((a,b))
+#print np.vstack([a,b])
 
 def diffusionSim(m, n, diffusionRate, t):
     '''Function to return a list of grids in a simulation of the diffusion of heat 
